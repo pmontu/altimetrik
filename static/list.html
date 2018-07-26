@@ -1,0 +1,31 @@
+<div id="app">
+  <ul>
+  <li v-for="article in articles">
+    {{ article.id }} {{ article.title }} {{ article.content }} {{ article.author_name }} {{ article.votes }}
+  </li>
+  </ul>
+  {{ articles.length }} articles displayed
+</div>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      articles: [{
+        "id": 5,
+        "title": "hi3",
+        "content": "1",
+        "author_name": "manoj",
+        "votes": 0
+      }]
+    },
+    created(){
+      fetch('http://127.0.0.1:8000/api/articles/')
+        .then(response => response.json())
+        .then(json => {
+          this.articles = json
+        })
+    }
+  })
+</script>
