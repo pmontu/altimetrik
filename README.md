@@ -1,12 +1,8 @@
-# Demo App
+# Set Up
 
-	brew upgrade python3
-
-	mkvirtualenv --python=/usr/local/bin/python3.7 altimetrik
-
-	pip install Django==2.0.0
-
-	~/.virtualenvs/altimetrik/bin/django-admin startproject altimetrik
+pip install -r requirements.txt
+./manage.py migrate
+./manage.py runserver
 
 # Progress
 
@@ -57,6 +53,19 @@ Clause 1: Post an article
 	  -d '{
 	    "title": "hi3",
 	    "content": "1",
-	    "author_name": "manoj",
-	    "votes": 0
+	    "author_name": "manoj"
 	}'
+
+User Interface: List Articles
+
+	http://127.0.0.1:8000/static/list.html
+
+# Development Environment
+
+	brew upgrade python3
+
+	mkvirtualenv --python=/usr/local/bin/python3.7 altimetrik
+
+	pip install Django==2.0.0
+
+	~/.virtualenvs/altimetrik/bin/django-admin startproject altimetrik
